@@ -16,10 +16,10 @@ function App() {
     let pass = ''
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-    if (numberAllowed) { str += "0123456789"}
-    if (charAllowed) {str += "!@#$%^*()_+"}
+    if (numberAllowed) {str = str + "0123456789"}
+    if (charAllowed) {str = str + "!@#$%^*()_+"}
 
-    for(let i=1; i<length; i++) {
+    for(let i=0; i<length; i++) {
       //Generating a random number
       const char = Math.floor(Math.random() * str.length + 1)
       //
@@ -82,7 +82,7 @@ function App() {
           defaultChecked={numberAllowed}
           onChange={()=>{
             //used callbacks here so that 'React reacts when rapid inputs occur'
-            setNumberAllowed((prev)=> {!prev})
+            setNumberAllowed(!numberAllowed)
           }} />
           <label htmlFor="number">Numbers</label>
 
@@ -91,7 +91,7 @@ function App() {
           defaultChecked={charAllowed}
           onChange={()=>{
             //used callbacks here so that 'React reacts when rapid inputs occur'
-            setCharAllowed((prev)=> {!prev})
+            setCharAllowed(!charAllowed)
           }} />
           <label htmlFor="Characters">Characters</label>
         </div>
