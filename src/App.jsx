@@ -1,6 +1,4 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -16,13 +14,14 @@ function App() {
     let pass = ''
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
+    //if checkboxed value is true make the string template bigger
     if (numberAllowed) {str = str + "0123456789"}
     if (charAllowed) {str = str + "!@#$%^*()_+"}
 
     for(let i=0; i<length; i++) {
       //Generating a random number
       const char = Math.floor(Math.random() * str.length + 1)
-      //
+      //charAt
       pass += str.charAt(char)
     }
 
